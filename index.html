@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Benchmark 123 尋吧！慈善市集 ｜ReLove Bazaar</title>
+<meta name="description" content="Benchmark 123 尋吧！慈善市集 ｜ReLove Bazaar，2027年1月23日，上環德輔道中322至324號西區電訊大廈12樓。">
+
+<!-- WhatsApp / 社交媒體分享預覽卡片 -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Benchmark 123 尋吧！慈善市集 ｜ReLove Bazaar">
+<meta property="og:description" content="2027年1月23日（六）下午 1:00–5:00｜上環德輔道中322至324號西區電訊大廈12樓。誠邀大家支持物資捐贈，讓資源流動・讓善心落地！">
+<meta property="og:image" content="https://res.cloudinary.com/gdsvmvs9/image/upload/v1795173759/123_%E5%B0%8B%E5%90%A7_%E6%85%88%E5%96%84%E5%B8%82%E9%9B%86_ReLove_Bazaar_Poster_website.jpg">
+<meta property="og:site_name" content="Benchmark 宏思">
+<meta property="og:url" content="https://benchmarktrainings.com/">
+<meta name="theme-color" content="#1B100A">
+<!-- 註：og:url 上線時請改成這個頁面的實際網址（例如 https://benchmarktrainings.com/relove-bazaar） -->
+
+<!-- Google 思源黑體字型 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --orange:#F07D3A;        /* 亮橙強調色 */
+    --orange-deep:#FF9B5E;   /* 小標題亮暖橙 */
+    --gold:#E2B87D;          /* 香檳金點綴 */
+    --bg:#1B100A;            /* 深棕橙網頁底色 */
+    --card:#291910;          /* 深暖橙卡片背景 */
+    --text:#F8EFE8;          /* 柔白主文字 */
+    --text-soft:#C9B7AA;     /* 暖灰米色副文字 */
+    --line:#452B1C;          /* 暗橙邊框線條 */
+    --radius:18px;
+    --header-h:100px;                        /* 配合 75px Logo 調整頂欄高度 */
+    --poster-max:calc(80vh - 128px);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Noto Sans TC",-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px;}
+
+  /* ===== Header：頂部 Logo 置中 + 指向發光效果 ===== */
+  header{
+    background:rgba(41, 25, 16, 0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+    position:sticky;top:0;z-index:20;
+  }
+  .header-inner{
+    display:flex;align-items:center;
+    justify-content:center;
+    padding:12px 20px;max-width:860px;margin:0 auto;
+  }
+  .logo{
+    display:flex;align-items:center;justify-content:center;
+  }
+  .logo a{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+  }
+  .logo img{
+    height:75px; /* 從 105px 降為 75px */
+    max-width:85vw;
+    width:auto;
+    object-fit:contain;
+    display:block;
+    transition:transform 0.3s ease, filter 0.3s ease;
+    cursor:pointer;
+  }
+  .logo a:hover img,
+  .logo img:hover{
+    transform:translateY(-3px) scale(1.03);
+    filter:drop-shadow(0 0 14px rgba(240, 125, 58, 0.75)) drop-shadow(0 0 28px rgba(226, 184, 125, 0.45));
+  }
+
+  /* ===== Hero Poster：控制高度在螢幕 75%～80% 內並完整顯示 ===== */
+  .hero{
+    margin:16px 0 8px;
+    display:flex;
+    justify-content:center; /* 讓海報水平置中 */
+  }
+  .poster{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:var(--radius);
+    overflow:hidden; /* 保持圓角並限制放大範圍不撐破版面 */
+    background:transparent;
+    max-width:100%;
+  }
+  .poster a{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+  }
+  .poster img{
+    width:auto;
+    max-width:100%;
+    max-height:var(--poster-max); /* 由 :root 統一控制：開頁即見海報佔畫面約 8 成，下面微露出內容 */
+    height:auto;
+    object-fit:contain; /* 確保整張海報完整顯示、絕不裁切 */
+    display:block;
+    border-radius:var(--radius);
+    transition:transform 0.35s ease; /* 新增：平滑放大過渡 */
+    cursor:pointer;
+  }
+  /* 新增：滑鼠指向時輕輕放大 3% */
+  .poster a:hover img,
+  .poster img:hover{
+    transform:scale(1.03);
+  }
+
+  /* ===== Info Cards ===== */
+  .info-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0;
+  }
+  .info-card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px 16px;text-align:center;
+  }
+  /* 頂部金色小標題（活動日期時間 / 活動地點 / 物資截止日期） */
+  .info-card .label{
+    font-size:20px;
+    letter-spacing:.12em;
+    color:var(--gold);
+    font-weight:700;
+    margin-bottom:8px;
+  }
+  /* 中間主要白色大字（日期 / 地點 / 截止日） */
+  .info-card .value{
+    font-size:15px;
+    font-weight:700;
+    line-height:1.5;
+  }
+  /* 底下小字補充（下午 1:00 – 5:00 / Benchmark 中心 等） */
+  .info-card .value small{
+    display:block;
+    font-weight:400;
+    color:var(--text-soft);
+    font-size:13px;
+    margin-top:4px;
+  }
+
+  /* ===== Sections ===== */
+  section{margin:36px 0;}
+  .section-title{
+    font-size:22px;font-weight:700;margin-bottom:16px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .section-title::before{
+    content:"";width:6px;height:22px;border-radius:4px;
+    background:linear-gradient(var(--orange),var(--gold));
+  }
+  .lead{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px 22px;font-size:15px;color:var(--text-soft);
+  }
+  .lead strong{color:var(--text);}
+
+/* ===== 活動介紹：響應式左右 / 上下雙欄 ===== */
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: start; /* 改為靠上對齊，避免文字卡懸浮在半空 */
+}
+
+.intro-text {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  font-size: 15px;
+  color: var(--text-soft);
+  /* 移除 height: 100%，讓卡片依文字實際高度收縮 */
+}
+.intro-text strong {
+  color: var(--text);
+  font-size: 17px;
+}
+
+.intro-video {
+  display: flex;
+  justify-content: center;
+}
+
+/* 直向 Reels 影片容器（9:16 比例 + 最高佔螢幕 80% 扣減頂欄） */
+.reels-frame {
+  aspect-ratio: 9 / 16;
+  height: calc(80vh - var(--header-h) - 24px);
+  height: calc(80svh - var(--header-h) - 24px);
+  max-height: 460px; /* 微調高度讓左右視覺更平衡 */
+  max-width: 100%;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #000;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+}
+
+.reels-frame video,
+.reels-frame iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 0;
+  display: block;
+}
+
+/* 窄畫面（平板直向 / 手機）：自動變為上下排列 */
+@media (max-width: 768px) {
+  .intro-grid {
+    grid-template-columns: 1fr; /* 單欄上下排列 */
+    gap: 16px;
+  }
+  .reels-frame {
+    height: calc(80vh - var(--header-h) - 24px);
+    height: calc(80svh - var(--header-h) - 24px);
+    max-height: 540px;
+  }
+}
+
+
+  /* ===== Rule Cards ===== */
+  .rule-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .rule-card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;
+  }
+  .rule-card h3{font-size:17px;margin-bottom:12px;color:var(--orange-deep);}
+  .rule-card p{font-size:14.5px;color:var(--text-soft);margin-bottom:10px;}
+  .rule-card .sub{
+    border-top:1px dashed var(--line);padding-top:12px;margin-top:12px;
+  }
+  .rule-card .sub p{margin-bottom:8px;}
+  .rule-card strong{color:var(--text);}
+
+  /* ===== 徵集物資類別（2x3 網格卡片版） ===== */
+  .cat-note{font-size:13.5px;color:var(--text-soft);margin:-8px 0 18px;}
+  .cat-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr; /* 電腦版左右 2 欄並排（6個項目自動排成 2x3） */
+    gap:16px;
+  }
+  .cat-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:20px 22px;
+  }
+  .cat-card h3{
+    font-size:16.5px;
+    font-weight:700;
+    color:var(--orange-deep);
+    margin-bottom:12px;
+    padding-bottom:10px;
+    border-bottom:1px dashed var(--line);
+  }
+  .cat-card ul{list-style:none;}
+  .cat-card li{
+    font-size:14.5px;
+    color:var(--text-soft);
+    padding:5px 0 5px 18px;
+    position:relative;
+    line-height:1.55;
+  }
+  .cat-card li::before{
+    content:"";
+    position:absolute;
+    left:0;top:13px;
+    width:6px;height:6px;
+    border-radius:50%;
+    background:var(--gold);
+  }
+
+  /* ===== Notes ===== */
+  .note-box{
+    background:#331D11;border:1px solid #593520;border-radius:var(--radius);
+    padding:20px 22px;font-size:14.5px;color:var(--text-soft);
+  }
+  .note-box p{margin-bottom:10px;}
+  .note-box p:last-child{margin-bottom:0;}
+  .note-box strong{color:var(--orange-deep);}
+
+  /* ===== CTA ===== */
+  .cta{text-align:center;margin:36px 0;}
+  .wa-btn{
+    display:inline-flex;align-items:center;gap:10px;
+    background:linear-gradient(135deg,#F07D3A,#C8561B);
+    color:#fff;text-decoration:none;font-weight:600;font-size:16px;
+    padding:16px 34px;border-radius:999px;
+    box-shadow:0 10px 24px rgba(240,125,58,.32);
+    transition:transform .2s,box-shadow .2s;
+  }
+  .wa-btn:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(240,125,58,.45);}
+  .wa-btn svg{width:22px;height:22px;fill:#fff;}
+  .cta-hint{font-size:13px;color:var(--text-soft);margin-top:12px;}
+
+  /* ===== Footer ===== */
+  footer{
+    border-top:1px solid var(--line);padding:24px 0 32px;text-align:center;
+    font-size:13px;color:var(--text-soft);
+  }
+
+  /* ===== 協辦單位 Logo（同款深暖橙卡片 ＋ 僅前 2 個 Logo 帶貼紙白邊） ===== */
+  .co-logos{
+    margin:16px 0 48px;
+    padding:28px 24px;
+    background:var(--card);       /* 與「徵集物資類別」一致的深暖橙卡片 */
+    border:1px solid var(--line); /* 暗橙細邊框 */
+    border-radius:var(--radius);  /* 18px 圓角 */
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:48px;
+    flex-wrap:wrap;
+  }
+
+  /* 所有 Logo 的基本設定（第 3 個及之後會套用這個完全原樣無描邊的設定） */
+  .co-logos img{
+    height:90px !important;
+    width:auto !important;
+    max-width:42vw !important;
+    object-fit:contain !important;
+    display:block !important;
+    padding:0 !important;
+    background:transparent !important;
+    border:none !important;
+    border-radius:0 !important;
+    filter:none !important;
+    transition:transform 0.3s ease !important;
+    cursor:pointer !important;
+  }
+
+  /* 👇 專門針對「頭 2 個 Logo」加上緊貼圖案輪廓的白色外描邊（無四方框） */
+  .co-logos img:nth-child(-n+2){
+    filter:
+      drop-shadow(1.5px 0 0 rgba(248, 239, 232, 0.95))
+      drop-shadow(-1.5px 0 0 rgba(248, 239, 232, 0.95))
+      drop-shadow(0 1.5px 0 rgba(248, 239, 232, 0.95))
+      drop-shadow(0 -1.5px 0 rgba(248, 239, 232, 0.95)) !important;
+  }
+
+  .co-logos img:hover{
+    transform:translateY(-4px) scale(1.04) !important;
+  }
+
+  /* 手機版尺寸鎖定 */
+  @media (max-width:640px){
+    .co-logos{
+      padding:22px 16px !important;
+      gap:24px !important;
+      margin:12px 0 36px !important;
+    }
+    .co-logos img{
+      height:65px !important;
+    }
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width:640px){
+    :root{
+      --header-h:77px;
+      --poster-max:calc(80vh - 97px);
+      --poster-max:calc(80svh - 97px);
+    }
+    .header-inner{padding:9px 16px;}
+    .logo img{height:58px;max-width:70vw;}
+    .wrap{padding:0 16px;}
+    .hero{margin:8px 0 6px;}
+    
+    /* 手機版改為 2 欄排列，並讓第 2 張（活動地點）橫跨整列 */
+    .info-grid{grid-template-columns:repeat(2,1fr);gap:10px;}
+    .info-card{padding:14px 10px;}
+    .info-card:nth-child(2){grid-column:1 / -1;order:3;} /* 活動地點移到下方佔滿整行 */
+    .info-card .label{font-size:14px;letter-spacing:.05em;margin-bottom:4px;}
+    .info-card .value{font-size:14px;line-height:1.4;}
+    .info-card .value small{font-size:12px;margin-top:3px;}
+
+    .rule-grid{grid-template-columns:1fr;}
+    .cat-grid{grid-template-columns:1fr;}
+    .section-title{font-size:19px;}
+  }
+/* ===== Floating CTA：右下角長期懸浮行動按鈕 ===== */
+/* ===== Floating CTA：預設隱藏，僅在手機/窄螢幕顯示 ===== */
+.floating-cta{
+  display:none; /* 桌面版不顯示，避免遮擋卡片文字 */
+}
+
+@keyframes pulseGlow{
+  0%, 100%{box-shadow:0 8px 24px rgba(0, 0, 0, 0.55), 0 0 12px rgba(240, 125, 58, 0.35);}
+  50%{box-shadow:0 8px 24px rgba(0, 0, 0, 0.55), 0 0 24px rgba(240, 125, 58, 0.75);}
+}
+
+/* 手機與窄螢幕（768px 以下）才顯示右下角懸浮按鈕 */
+@media (max-width:768px){
+  .floating-cta{
+    position:fixed;
+    right:14px;
+    bottom:16px;
+    z-index:99;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:linear-gradient(135deg,#F07D3A,#C8561B);
+    color:#fff;
+    text-decoration:none;
+    font-weight:700;
+    font-size:13.5px;
+    padding:11px 16px;
+    border-radius:999px;
+    border:1.5px solid rgba(226, 184, 125, 0.65);
+    box-shadow:0 8px 24px rgba(0, 0, 0, 0.55), 0 0 18px rgba(240, 125, 58, 0.45);
+    animation:pulseGlow 2.8s infinite;
+  }
+  .floating-cta .desktop-text{display:none;}
+  .floating-cta .mobile-text{display:inline;}
+  footer{padding-bottom:96px;} /* 預留懸浮按鈕高度，避免壓住協辦單位卡片 */
+}
+
+/* 尊重系統「減少動態效果」（prefers-reduced-motion）設定 */
+@media (prefers-reduced-motion: reduce){
+  .floating-cta{animation:none;}
+  .poster img,
+  .logo img,
+  .co-logos img{transition:none;}
+}
+
+</style>
+
+<!-- 活動結構化資料：讓 Google／搜尋結果直接顯示日期、時間、地點 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Benchmark 123 尋吧！慈善市集 ReLove Bazaar",
+  "description": "Benchmark 123 尋吧！慈善市集 ReLove Bazaar，2027年1月23日（六）下午1:00–5:00，上環德輔道中322至324號西區電訊大廈12樓。歡迎捐贈物資，讓資源流動・讓善心落地。",
+  "startDate": "2027-01-23T13:00:00+08:00",
+  "endDate": "2027-01-23T17:00:00+08:00",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "image": ["https://res.cloudinary.com/gdsvmvs9/image/upload/v1795173759/123_%E5%B0%8B%E5%90%A7_%E6%85%88%E5%96%84%E5%B8%82%E9%9B%86_ReLove_Bazaar_Poster_website.jpg"],
+  "location": {
+    "@type": "Place",
+    "name": "西區電訊大廈 12樓",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "上環德輔道中322至324號",
+      "addressLocality": "上環",
+      "addressRegion": "香港",
+      "addressCountry": "HK"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "Benchmark 宏思",
+    "url": "https://benchmarktrainings.com/"
+  }
+}
+</script>
+</head>
+<body>
+
+  <!-- ===== Header：頂部 Logo 置中（點擊前往官網） ===== -->
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <a href="https://benchmarktrainings.com/" target="_blank" rel="noopener" aria-label="Benchmark 官方網站">
+          <img src="https://res.cloudinary.com/gdsvmvs9/image/upload/v1794986451/logo.png" alt="Benchmark">
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+
+    <!-- ===== Hero：活動 Poster ===== -->
+    <div class="hero">
+      <div class="poster">
+      <a href="https://forms.gle/QGxJbmRFi4nsV92dA" target="_blank" rel="noopener">
+        <img src="https://res.cloudinary.com/gdsvmvs9/image/upload/v1795172992/123_%E5%B0%8B%E5%90%A7_%E6%85%88%E5%96%84%E5%B8%82%E9%9B%86_ReLove_Bazaar_Poster_website.jpg" alt="慈善市集暨拍賣會海報">
+        </a>
+      </div>
+    </div>
+
+    <!-- ===== 重點資訊 ===== -->
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="label">活動日期時間</div>
+        <div class="value">2027年1月23日（六）<small>下午 1:00 – 5:00</small></div>
+      </div>
+      <div class="info-card">
+        <div class="label">活動地點</div>
+        <div class="value">上環德輔道中322至324號<small>西區電訊大廈12樓</small></div>
+      </div>
+      <div class="info-card">
+        <div class="label">物資截止日期</div>
+        <div class="value">2027年1月16日（六）<small>或之前交予 Benchmark 收</small></div>
+      </div>
+    </div>
+
+    <!-- ===== 活動介紹 ===== -->
+    <section>
+      <h2 class="section-title">活動介紹</h2>
+      <div class="intro-grid">
+        <!-- 左側（手機版上方）：文字介紹 -->
+        <div class="intro-text">
+          <p><strong>「讓資源流動·讓善心落地」</strong></p>
+          <p style="margin-top:12px;">你的捐贈，除了可以轉化資源，更可以將人同人連結，</p>
+          <p>引發惜物的愛心，令社會多一點溫暖。</p>
+        </div>
+
+        <!-- 右側（手機版下方）：YouTube Shorts 影片 -->
+        <div class="intro-video">
+          <div class="reels-frame">
+            <iframe 
+              src="https://www.youtube.com/embed/UP6PVNJ3qpI?rel=0&playsinline=1" 
+              title="Benchmark 123 尋吧！慈善市集活動介紹"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 參與及拍賣規則 ===== -->
+    <section>
+      <h2 class="section-title">參與及拍賣規則</h2>
+      <p style="color:var(--text-soft);font-size:14.5px;margin-bottom:16px;">為方便大家靈活參與，物資將按價值分為以下兩類處理：</p>
+      <div class="rule-grid">
+        <div class="rule-card">
+          <h3>1️⃣ 價值 $1,000 以下（市集義賣）</h3>
+          <p>將以直接售賣方式處理，</p>
+          <p>售賣價格將由 Benchmark 決定，</p>
+          <p>所得之全數收益將直接撥作慈善捐贈。</p>
+        </div>
+        <div class="rule-card">
+          <h3>2️⃣ 價值 $1,000 或以上（慈善拍賣）</h3>
+          <p><strong>將以公開拍賣形式處理。</strong></p>
+          <p>▫️ 請物主預先在物品上清楚貼上標籤，列明「底價」，</p>
+      <p>並註明「如未能售出，是否需要退還予本人」。</p>
+          <p>▫️ 如無特別註明，未售出之物品將於活動後統一不作退還，並轉贈予其他慈善機構。</p>
+          <div class="sub">
+            <p><strong>凡經拍賣成功售出之物品，收益分配如下：</strong></p>
+            <p>▫️ 如以高於底價售出：底價將全數歸還予物主，高於底價之差額將全數撥作慈善捐贈。</p>
+            <p>▫️ 如最終僅以底價售出：大會將從底價中扣除 10% 撥作慈善用途，餘下 90% 歸物主所有。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="note-box" style="margin-top:16px;">
+        <p><strong>📌 交收方式及截止日期：</strong></p>
+        <p>有意參與者，請於 <strong>2027年1月16日（星期六）</strong> 或之前，</p>
+        <p>將物資交予上環德輔道中322至324號西區電訊大廈13樓（Benchmark 收）。</p>
+        <p>如屬 $1,000 或以上之拍賣物品，請務必事先在標籤上列明底價、未售出之處理方式，並附上物品簡介（如有）。</p>
+        <p>無論價值高低，每一份心意都是對慈善莫大的支持！期待大家踴躍響應，一同共襄善舉！</p>
+      </div>
+    </section>
+
+<!-- ===== 中段 捐贈按鈕 CTA ===== -->
+<div class="cta">
+  <a class="wa-btn" href="https://forms.gle/QGxJbmRFi4nsV92dA" target="_blank" rel="noopener">
+    💝立即登記捐贈 · 讓好物找到新主人 ➔
+  </a>
+  <div class="cta-hint">如有查詢，可致電+852 2877 2311與我們聯絡。</div>
+</div>
+
+    <!-- ===== 徵集物資類別（2x3 卡片清單） ===== -->
+    <section>
+      <h2 class="section-title">🎁 徵集物資類別</h2>
+      <p class="cat-note">全部捐贈物品需為大眾化品牌以至精品收藏，如UNIQLO、無印良品、IKEA 等日常實用品牌。</p>
+
+      <div class="cat-grid">
+        <div class="cat-card">
+          <h3>🧡 精品及服飾</h3>
+          <ul>
+            <li>銀包、手袋、太陽眼鏡、絲巾及配飾（至少八成新並請預先清潔好）</li>
+            <li>手錶（至少八成新並請預先清潔好）</li>
+            <li>衣服（至少八成新並請預先清潔好）</li>
+            <li>運動鞋（必須全新）</li>
+          </ul>
+        </div>
+
+        <div class="cat-card">
+          <h3>🧡 數碼電子及生活家電</h3>
+          <ul>
+            <li>藍牙喇叭、航拍機、各類電子及數碼產品（至少八成新，並確保運作正常及配件齊全）</li>
+            <li>小型家電（至少八成新，並確保運作正常）</li>
+          </ul>
+        </div>
+
+        <div class="cat-card">
+          <h3>🧡 美酒佳餚及護理禮盒</h3>
+          <ul>
+            <li>酒精類：紅白酒、威士忌、清酒（必須全新未開封）</li>
+            <li>乾貨禮盒：鮑魚花膠海味、精品茶葉／咖啡禮盒（必須全新未開封、包裝完整及在有效期內）</li>
+            <li>美容護理：護膚品／香水套裝（必須全新未開封及在有效期內）</li>
+          </ul>
+        </div>
+
+        <div class="cat-card">
+          <h3>🧡 家居生活及廚具</h3>
+          <ul>
+            <li>廚具／餐具（必須全新未開封）</li>
+            <li>家居擺設（至少八成新並請預先清潔好）</li>
+          </ul>
+        </div>
+
+        <div class="cat-card">
+          <h3>🧡 潮流玩具及文藝收藏</h3>
+          <ul>
+            <li>潮流玩意（如 LEGO）（至少八成新並請預先清潔好）</li>
+            <li>限量版紀念品、藝術擺設（至少八成新並請預先清潔好）</li>
+            <li>黑膠唱片／CD／書籍（不收雜誌及過期刊物，需保存良好、無破損或發霉）</li>
+          </ul>
+        </div>
+
+        <div class="cat-card">
+          <h3>🧡 禮券及體驗會籍</h3>
+          <ul>
+            <li>超市／百貨公司現金券、餐飲禮券、電影換票證（必須為不記名、可轉讓及在有效期內）</li>
+            <li>酒店 Staycation、Spa 按摩／美容療程、私人教練堂（必須為不記名、可轉讓及在有效期內）</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 備註 ===== -->
+    <section>
+      <h2 class="section-title">⚠️ 備註</h2>
+      <div class="note-box">
+        <p>▫️ <strong>體積及重量限制：</strong>為方便儲存、運送及買家攜帶，所有捐贈物資須以「單人可手提」為原則。</p>
+        <p>▫️ 主辦機構保留篩選及決定物資用途之最終權利。</p>
+      </div>
+    </section>
+
+<!-- ===== 底部 捐贈按鈕 CTA ===== -->
+<div class="cta">
+  <a class="wa-btn" href="https://forms.gle/QGxJbmRFi4nsV92dA" target="_blank" rel="noopener">
+    🎁找到心水捐贈物資？立即登記讓愛延續 ➔
+  </a>
+  <div class="cta-hint">如有查詢，可致電+852 2877 2311與我們聯絡。</div>
+</div>
+
+    <!-- ===== 協辦單位 Logo ===== -->
+    <section>
+      <h2 class="section-title">🤝 協辦單位</h2>
+      <div class="co-logos">
+          <img src="https://res.cloudinary.com/gdsvmvs9/image/upload/v1795167749/logo1.png" alt="協辦單位標誌">
+          <img src="https://res.cloudinary.com/gdsvmvs9/image/upload/v1795167736/logo2.png" alt="協辦單位標誌">
+          <img src="https://res.cloudinary.com/gdsvmvs9/image/upload/v1795405031/HERSPHERE_website.png" alt="協辦單位名稱">
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="wrap">Benchmark 123 尋吧！慈善市集 ReLove Bazaar</div>
+  </footer>
+
+<!-- ===== 右下角長期懸浮按鈕 ===== -->
+<a class="floating-cta" href="https://forms.gle/CZGFCMSntByuucoP7" target="_blank" rel="noopener" aria-label="立即登記捐贈物資">
+  <span class="desktop-text">🎁 立即登記捐贈物資</span>
+  <span class="mobile-text">🎁 登記捐贈</span>
+</a>
+
+</body>
+</html>
