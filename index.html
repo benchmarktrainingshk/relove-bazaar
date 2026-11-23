@@ -12,9 +12,9 @@
 <meta property="og:description" content="2027年1月23日（六）下午 1:00–5:00｜上環德輔道中322至324號西區電訊大廈12樓。誠邀大家支持物資捐贈，讓資源流動・讓善心落地！">
 <meta property="og:image" content="https://res.cloudinary.com/gdsvmvs9/image/upload/v1795173759/123_%E5%B0%8B%E5%90%A7_%E6%85%88%E5%96%84%E5%B8%82%E9%9B%86_ReLove_Bazaar_Poster_website.jpg">
 <meta property="og:site_name" content="Benchmark 宏思">
-<meta property="og:url" content="https://benchmarktrainings.com/">
+<meta property="og:url" content="https://benchmarktrainingshk.github.io/relove-bazaar/">
 <meta name="theme-color" content="#1B100A">
-<!-- 註：og:url 上線時請改成這個頁面的實際網址（例如 https://benchmarktrainings.com/relove-bazaar） -->
+<link rel="canonical" href="https://benchmarktrainingshk.github.io/relove-bazaar/">
 
 <!-- Google 思源黑體字型 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -391,37 +391,47 @@
     .cat-grid{grid-template-columns:1fr;}
     .section-title{font-size:19px;}
   }
-/* ===== Floating CTA：右下角長期懸浮行動按鈕 ===== */
-/* ===== Floating CTA：預設隱藏，僅在手機/窄螢幕顯示 ===== */
+/* ===== Floating CTA：右下角長期懸浮行動按鈕（桌面、手機都顯示） ===== */
 .floating-cta{
-  display:none; /* 桌面版不顯示，避免遮擋卡片文字 */
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:99;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:linear-gradient(135deg,#F07D3A,#C8561B);
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  font-size:14px;
+  padding:13px 20px;
+  border-radius:999px;
+  border:1.5px solid rgba(226, 184, 125, 0.65);
+  box-shadow:0 8px 24px rgba(0, 0, 0, 0.55), 0 0 18px rgba(240, 125, 58, 0.45);
+  transition:transform 0.25s ease, box-shadow 0.25s ease;
+  animation:pulseGlow 2.8s infinite;
 }
+.floating-cta:hover{
+  transform:translateY(-3px) scale(1.03);
+  box-shadow:0 12px 28px rgba(0, 0, 0, 0.65), 0 0 24px rgba(240, 125, 58, 0.75);
+  animation:none;
+}
+.floating-cta .mobile-text{display:none;}
 
 @keyframes pulseGlow{
   0%, 100%{box-shadow:0 8px 24px rgba(0, 0, 0, 0.55), 0 0 12px rgba(240, 125, 58, 0.35);}
   50%{box-shadow:0 8px 24px rgba(0, 0, 0, 0.55), 0 0 24px rgba(240, 125, 58, 0.75);}
 }
 
-/* 手機與窄螢幕（768px 以下）才顯示右下角懸浮按鈕 */
+/* 窄螢幕（768px 以下）：按鈕縮細、文案縮短，並預留頁尾空間 */
 @media (max-width:768px){
   .floating-cta{
-    position:fixed;
     right:14px;
     bottom:16px;
-    z-index:99;
-    display:inline-flex;
-    align-items:center;
     gap:6px;
-    background:linear-gradient(135deg,#F07D3A,#C8561B);
-    color:#fff;
-    text-decoration:none;
-    font-weight:700;
     font-size:13.5px;
     padding:11px 16px;
-    border-radius:999px;
-    border:1.5px solid rgba(226, 184, 125, 0.65);
-    box-shadow:0 8px 24px rgba(0, 0, 0, 0.55), 0 0 18px rgba(240, 125, 58, 0.45);
-    animation:pulseGlow 2.8s infinite;
   }
   .floating-cta .desktop-text{display:none;}
   .floating-cta .mobile-text{display:inline;}
@@ -444,6 +454,7 @@
   "@context": "https://schema.org",
   "@type": "Event",
   "name": "Benchmark 123 尋吧！慈善市集 ReLove Bazaar",
+  "url": "https://benchmarktrainingshk.github.io/relove-bazaar/",
   "description": "Benchmark 123 尋吧！慈善市集 ReLove Bazaar，2027年1月23日（六）下午1:00–5:00，上環德輔道中322至324號西區電訊大廈12樓。歡迎捐贈物資，讓資源流動・讓善心落地。",
   "startDate": "2027-01-23T13:00:00+08:00",
   "endDate": "2027-01-23T17:00:00+08:00",
@@ -564,7 +575,7 @@
       <div class="note-box" style="margin-top:16px;">
         <p><strong>📌 交收方式及截止日期：</strong></p>
         <p>有意參與者，請於 <strong>2027年1月16日（星期六）</strong> 或之前，</p>
-        <p>將物資交予上環德輔道中322至324號西區電訊大廈13樓（Benchmark 收）。</p>
+        <p>請將物資交予 <strong>上環德輔道中322至324號西區電訊大廈13樓</strong>（Benchmark 收）。（物資收集處在 13 樓；活動當日會場在 12 樓。）</p>
         <p>如屬 $1,000 或以上之拍賣物品，請務必事先在標籤上列明底價、未售出之處理方式，並附上物品簡介（如有）。</p>
         <p>無論價值高低，每一份心意都是對慈善莫大的支持！期待大家踴躍響應，一同共襄善舉！</p>
       </div>
