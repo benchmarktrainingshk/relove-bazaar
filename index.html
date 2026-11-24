@@ -97,12 +97,6 @@
     background:transparent;
     max-width:100%;
   }
-  .poster a{
-    display:inline-flex;
-    justify-content:center;
-    align-items:center;
-    text-decoration:none;
-  }
   .poster img{
     width:auto;
     max-width:100%;
@@ -115,7 +109,6 @@
     cursor:pointer;
   }
   /* 新增：滑鼠指向時輕輕放大 3% */
-  .poster a:hover img,
   .poster img:hover{
     transform:scale(1.03);
   }
@@ -292,20 +285,6 @@
   .note-box p:last-child{margin-bottom:0;}
   .note-box strong{color:var(--orange-deep);}
 
-  /* ===== CTA ===== */
-  .cta{text-align:center;margin:36px 0;}
-  .wa-btn{
-    display:inline-flex;align-items:center;gap:10px;
-    background:linear-gradient(135deg,#F07D3A,#C8561B);
-    color:#fff;text-decoration:none;font-weight:600;font-size:16px;
-    padding:16px 34px;border-radius:999px;
-    box-shadow:0 10px 24px rgba(240,125,58,.32);
-    transition:transform .2s,box-shadow .2s;
-  }
-  .wa-btn:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(240,125,58,.45);}
-  .wa-btn svg{width:22px;height:22px;fill:#fff;}
-  .cta-hint{font-size:13px;color:var(--text-soft);margin-top:12px;}
-
   /* ===== Footer ===== */
   footer{
     border-top:1px solid var(--line);padding:24px 0 32px;text-align:center;
@@ -382,56 +361,8 @@
     .cat-grid{grid-template-columns:1fr;}
     .section-title{font-size:19px;}
   }
-/* ===== Floating CTA：右下角長期懸浮行動按鈕（桌面、手機都顯示） ===== */
-.floating-cta{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  z-index:99;
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  background:linear-gradient(135deg,#F07D3A,#C8561B);
-  color:#fff;
-  text-decoration:none;
-  font-weight:700;
-  font-size:14px;
-  padding:13px 20px;
-  border-radius:999px;
-  border:1.5px solid rgba(226, 184, 125, 0.65);
-  box-shadow:0 8px 24px rgba(0, 0, 0, 0.55), 0 0 18px rgba(240, 125, 58, 0.45);
-  transition:transform 0.25s ease, box-shadow 0.25s ease;
-  animation:pulseGlow 2.8s infinite;
-}
-.floating-cta:hover{
-  transform:translateY(-3px) scale(1.03);
-  box-shadow:0 12px 28px rgba(0, 0, 0, 0.65), 0 0 24px rgba(240, 125, 58, 0.75);
-  animation:none;
-}
-.floating-cta .mobile-text{display:none;}
-
-@keyframes pulseGlow{
-  0%, 100%{box-shadow:0 8px 24px rgba(0, 0, 0, 0.55), 0 0 12px rgba(240, 125, 58, 0.35);}
-  50%{box-shadow:0 8px 24px rgba(0, 0, 0, 0.55), 0 0 24px rgba(240, 125, 58, 0.75);}
-}
-
-/* 窄螢幕（768px 以下）：按鈕縮細、文案縮短，並預留頁尾空間 */
-@media (max-width:768px){
-  .floating-cta{
-    right:14px;
-    bottom:16px;
-    gap:6px;
-    font-size:13.5px;
-    padding:11px 16px;
-  }
-  .floating-cta .desktop-text{display:none;}
-  .floating-cta .mobile-text{display:inline;}
-  footer{padding-bottom:96px;} /* 預留懸浮按鈕高度，避免壓住協辦單位卡片 */
-}
-
 /* 尊重系統「減少動態效果」（prefers-reduced-motion）設定 */
 @media (prefers-reduced-motion: reduce){
-  .floating-cta{animation:none;}
   .poster img,
   .logo img,
   .co-logos img{transition:none;}
@@ -489,9 +420,7 @@
     <!-- ===== Hero：活動 Poster ===== -->
     <div class="hero">
       <div class="poster">
-      <a href="https://forms.gle/QGxJbmRFi4nsV92dA" target="_blank" rel="noopener">
         <img src="https://res.cloudinary.com/gdsvmvs9/image/upload/v1795422780/123_%E5%B0%8B%E5%90%A7_%E6%85%88%E5%96%84%E5%B8%82%E9%9B%86_ReLove_Bazaar_Poster_website.jpg" alt="慈善市集暨拍賣會海報">
-        </a>
       </div>
     </div>
 
@@ -572,14 +501,6 @@
       </div>
     </section>
 
-<!-- ===== 中段 捐贈按鈕 CTA ===== -->
-<div class="cta">
-  <a class="wa-btn" href="https://forms.gle/QGxJbmRFi4nsV92dA" target="_blank" rel="noopener">
-    💝立即登記捐贈 · 讓好物找到新主人 ➔
-  </a>
-  <div class="cta-hint">如有查詢，可致電+852 2877 2311與我們聯絡。</div>
-</div>
-
     <!-- ===== 徵集物資類別（2x3 卡片清單） ===== -->
     <section>
       <h2 class="section-title">🎁 徵集物資類別</h2>
@@ -649,14 +570,6 @@
       </div>
     </section>
 
-<!-- ===== 底部 捐贈按鈕 CTA ===== -->
-<div class="cta">
-  <a class="wa-btn" href="https://forms.gle/QGxJbmRFi4nsV92dA" target="_blank" rel="noopener">
-    🎁找到心水捐贈物資？立即登記讓愛延續 ➔
-  </a>
-  <div class="cta-hint">如有查詢，可致電+852 2877 2311與我們聯絡。</div>
-</div>
-
     <!-- ===== 協辦單位 Logo ===== -->
     <section>
       <h2 class="section-title">🤝 協辦單位</h2>
@@ -672,12 +585,6 @@
   <footer>
     <div class="wrap">Benchmark 123 尋吧！慈善市集 ReLove Bazaar</div>
   </footer>
-
-<!-- ===== 右下角長期懸浮按鈕 ===== -->
-<a class="floating-cta" href="https://forms.gle/CZGFCMSntByuucoP7" target="_blank" rel="noopener" aria-label="立即登記捐贈物資">
-  <span class="desktop-text">🎁 立即登記捐贈物資</span>
-  <span class="mobile-text">🎁 登記捐贈</span>
-</a>
 
 </body>
 </html>
