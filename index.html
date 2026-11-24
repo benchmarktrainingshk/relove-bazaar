@@ -113,6 +113,14 @@
     transform:scale(1.03);
   }
 
+  .poster a{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+  }
+
+
   /* ===== Info Cards ===== */
   .info-grid{
     display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0;
@@ -284,6 +292,49 @@
   .note-box p{margin-bottom:10px;}
   .note-box p:last-child{margin-bottom:0;}
   .note-box strong{color:var(--orange-deep);}
+  .note-box a{color:var(--orange-deep);font-weight:700;text-decoration:underline;text-underline-offset:2px;}
+
+  /* ===== 全站通用 ▫️ 項目符號懸掛對齊 ===== */
+  .bullet-item{
+    display:flex;
+    align-items:flex-start;
+    gap:6px;
+    font-size:14.5px;
+    color:var(--text-soft);
+    margin-bottom:10px;
+  }
+  .bullet-item:last-child{
+    margin-bottom:0;
+  }
+  .rule-card .sub .bullet-item{
+    margin-bottom:8px;
+  }
+  .rule-card .sub .bullet-item:last-child{
+    margin-bottom:0;
+  }
+  .bullet-icon{
+    flex-shrink:0;
+  }
+
+
+  /* ===== CTA ===== */
+  .cta{text-align:center;margin:36px 0;}
+  .cta-top{margin:8px 0 0;} /* 用於「參與及拍賣規則」上方的按鈕，避免與 section 間距重複 */
+  .btn-primary{
+    display:inline-flex;align-items:center;gap:10px;
+    background:linear-gradient(135deg,#F07D3A,#C8561B);
+    color:#fff;text-decoration:none;font-weight:600;font-size:16px;
+    padding:16px 34px;border-radius:999px;
+    box-shadow:0 10px 24px rgba(240,125,58,.32);
+    transition:transform .2s,box-shadow .2s;
+    text-align:center;
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(240,125,58,.45);}
+  .btn-primary svg{width:22px;height:22px;fill:#fff;}
+  .cta-hint{font-size:13px;color:var(--text-soft);margin-top:12px;}
+  @media (max-width:640px){
+    .btn-primary{display:flex;justify-content:center;font-size:15px;padding:15px 24px;line-height:1.5;}
+  }
 
   /* ===== Footer ===== */
   footer{
@@ -361,8 +412,56 @@
     .cat-grid{grid-template-columns:1fr;}
     .section-title{font-size:19px;}
   }
+/* ===== Floating CTA：右下角長期懸浮行動按鈕（桌面、手機都顯示） ===== */
+.floating-cta{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:99;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:linear-gradient(135deg,#F07D3A,#C8561B);
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  font-size:14px;
+  padding:13px 20px;
+  border-radius:999px;
+  border:1.5px solid rgba(226, 184, 125, 0.65);
+  box-shadow:0 8px 24px rgba(0, 0, 0, 0.55), 0 0 18px rgba(240, 125, 58, 0.45);
+  transition:transform 0.25s ease, box-shadow 0.25s ease;
+  animation:pulseGlow 2.8s infinite;
+}
+.floating-cta:hover{
+  transform:translateY(-3px) scale(1.03);
+  box-shadow:0 12px 28px rgba(0, 0, 0, 0.65), 0 0 24px rgba(240, 125, 58, 0.75);
+  animation:none;
+}
+.floating-cta .mobile-text{display:none;}
+
+@keyframes pulseGlow{
+  0%, 100%{box-shadow:0 8px 24px rgba(0, 0, 0, 0.55), 0 0 12px rgba(240, 125, 58, 0.35);}
+  50%{box-shadow:0 8px 24px rgba(0, 0, 0, 0.55), 0 0 24px rgba(240, 125, 58, 0.75);}
+}
+
+/* 窄螢幕（768px 以下）：按鈕縮細、文案縮短，並預留頁尾空間 */
+@media (max-width:768px){
+  .floating-cta{
+    right:14px;
+    bottom:16px;
+    gap:6px;
+    font-size:13.5px;
+    padding:11px 16px;
+  }
+  .floating-cta .desktop-text{display:none;}
+  .floating-cta .mobile-text{display:inline;}
+  footer{padding-bottom:96px;} /* 預留懸浮按鈕高度，避免壓住協辦單位卡片 */
+}
+
 /* 尊重系統「減少動態效果」（prefers-reduced-motion）設定 */
 @media (prefers-reduced-motion: reduce){
+  .floating-cta{animation:none;}
   .poster img,
   .logo img,
   .co-logos img{transition:none;}
@@ -420,7 +519,9 @@
     <!-- ===== Hero：活動 Poster ===== -->
     <div class="hero">
       <div class="poster">
-        <img src="https://res.cloudinary.com/gdsvmvs9/image/upload/v1795422780/123_%E5%B0%8B%E5%90%A7_%E6%85%88%E5%96%84%E5%B8%82%E9%9B%86_ReLove_Bazaar_Poster_website.jpg" alt="慈善市集暨拍賣會海報">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeqsXDnJPjGlSQy4wQ7t4JdbDbQ2S7PjlxPxGSbMrJtRl0XhQ/viewform?usp=dialog" target="_blank" rel="noopener" aria-label="前往登記拍賣">
+          <img src="https://res.cloudinary.com/gdsvmvs9/image/upload/v1795422780/123_%E5%B0%8B%E5%90%A7_%E6%85%88%E5%96%84%E5%B8%82%E9%9B%86_ReLove_Bazaar_Poster_website.jpg" alt="慈善市集暨拍賣會海報">
+        </a>
       </div>
     </div>
 
@@ -467,39 +568,86 @@
       </div>
     </section>
 
+    <!-- ===== 頂部 CTA：我有好物拍賣（置於「參與及拍賣規則」之上） ===== -->
+    <div class="cta cta-top">
+      <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSeqsXDnJPjGlSQy4wQ7t4JdbDbQ2S7PjlxPxGSbMrJtRl0XhQ/viewform?usp=dialog" target="_blank" rel="noopener">
+        🎁 我有好物拍賣 ➔
+      </a>
+    </div>
+
     <!-- ===== 參與及拍賣規則 ===== -->
     <section>
       <h2 class="section-title">參與及拍賣規則</h2>
       <p style="color:var(--text-soft);font-size:14.5px;margin-bottom:16px;">為方便大家靈活參與，物資將按價值分為以下兩類處理：</p>
+
+      <!-- 上排：左右兩欄並排 -->
       <div class="rule-grid">
         <div class="rule-card">
           <h3>1️⃣ 價值 $1,000 以下（市集義賣）</h3>
           <p>將以直接售賣方式處理，</p>
           <p>售賣價格將由 Benchmark 決定，</p>
           <p>所得之全數收益將直接撥作慈善捐贈。</p>
+          <p><strong>無需</strong>事先網上填表。</p>
         </div>
+
         <div class="rule-card">
           <h3>2️⃣ 價值 $1,000 或以上（慈善拍賣）</h3>
           <p><strong>將以公開拍賣形式處理。</strong></p>
-          <p>▫️ 請物主預先在物品上清楚貼上標籤，列明「底價」，</p>
-      <p>並註明「如未能售出，是否需要退還予本人」。</p>
-          <p>▫️ 如無特別註明，未售出之物品將於活動後統一不作退還，並轉贈予其他慈善機構。</p>
+          <div class="bullet-item">
+            <span class="bullet-icon">▫️</span>
+            <div>請物主預先在物品上清楚貼上標籤，列明「底價」，<br>並註明「如未能售出，是否需要退還予本人」。</div>
+          </div>
+          <div class="bullet-item">
+            <span class="bullet-icon">▫️</span>
+            <div>如無特別註明，未售出之物品將於活動後統一不作退還，並轉贈予其他慈善機構。</div>
+          </div>
           <div class="sub">
             <p><strong>凡經拍賣成功售出之物品，收益分配如下：</strong></p>
-            <p>▫️ 如以高於底價售出：底價將全數歸還予物主，高於底價之差額將全數撥作慈善捐贈。</p>
-            <p>▫️ 如最終僅以底價售出：大會將從底價中扣除 10% 撥作慈善用途，餘下 90% 歸物主所有。</p>
+            <div class="bullet-item">
+              <span class="bullet-icon">▫️</span>
+              <div>如以高於底價售出：底價將全數歸還予物主，高於底價之差額將全數撥作慈善捐贈。</div>
+            </div>
+            <div class="bullet-item">
+              <span class="bullet-icon">▫️</span>
+              <div>如最終僅以底價售出：大會將從底價中扣除 10% 撥作慈善用途，餘下 90% 歸物主所有。</div>
+            </div>
           </div>
         </div>
       </div>
 
+      <!-- 下排：橫跨上方兩欄總寬度的「交收方式及截止日期」框框 -->
       <div class="note-box" style="margin-top:16px;">
         <p><strong>📌 交收方式及截止日期：</strong></p>
-        <p>有意參與者，請於 <strong>2027年1月16日（星期六）</strong> 或之前，</p>
-        <p>請將物資交予 <strong>上環德輔道中322至324號西區電訊大廈13樓</strong>（Benchmark 收）。（物資收集處在 13 樓；活動當日會場在 12 樓。）</p>
-        <p>如屬 $1,000 或以上之拍賣物品，請務必事先在標籤上列明底價、未售出之處理方式，並附上物品簡介（如有）。</p>
-        <p>無論價值高低，每一份心意都是對慈善莫大的支持！期待大家踴躍響應，一同共襄善舉！</p>
+
+        <div class="bullet-item">
+          <span class="bullet-icon">▫️</span>
+          <div>有意參與者，請於 <strong>2027年1月16日（星期六）</strong> 或之前，</div>
+        </div>
+
+        <div class="bullet-item">
+          <span class="bullet-icon">▫️</span>
+          <div>請將物資交予 <strong>上環德輔道中322至324號西區電訊大廈13樓</strong>（Benchmark 收）。（物資收集處在 13 樓；活動當日會場在 12 樓。）</div>
+        </div>
+
+        <div class="bullet-item">
+          <span class="bullet-icon">▫️</span>
+          <div>如屬 $1,000 或以上之拍賣物品，請務必事先填妥<strong><a href="https://docs.google.com/forms/d/e/1FAIpQLSeqsXDnJPjGlSQy4wQ7t4JdbDbQ2S7PjlxPxGSbMrJtRl0XhQ/viewform?usp=dialog" target="_blank" rel="noopener">網上登記表格</a></strong>，逐項列明物品名稱、底價、未售出之處理方式及物品簡介（如有）。</div>
+        </div>
+
+        <div class="bullet-item">
+          <span class="bullet-icon">▫️</span>
+          <div>無論價值高低，每一份心意都是對慈善莫大的支持！期待大家踴躍響應，一同共襄善舉！</div>
+        </div>
       </div>
     </section>
+
+    <!-- ===== 中段 CTA：交收方式下方 ===== -->
+    <div class="cta">
+      <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSeqsXDnJPjGlSQy4wQ7t4JdbDbQ2S7PjlxPxGSbMrJtRl0XhQ/viewform?usp=dialog" target="_blank" rel="noopener">
+        📝 我要登記拍賣物品 ➔
+      </a>
+      <div class="cta-hint">如有查詢，可致電 +852 2877 2311 與我們聯絡。</div>
+    </div>
 
     <!-- ===== 徵集物資類別（2x3 卡片清單） ===== -->
     <section>
@@ -565,10 +713,24 @@
     <section>
       <h2 class="section-title">⚠️ 備註</h2>
       <div class="note-box">
-        <p>▫️ <strong>體積及重量限制：</strong>為方便儲存、運送及買家攜帶，所有捐贈物資須以「單人可手提」為原則。</p>
-        <p>▫️ 主辦機構保留篩選及決定物資用途之最終權利。</p>
+        <div class="bullet-item">
+          <span class="bullet-icon">▫️</span>
+          <div><strong>體積及重量限制：</strong>為方便儲存、運送及買家攜帶，所有捐贈物資須以「單人可手提」為原則。</div>
+        </div>
+        <div class="bullet-item">
+          <span class="bullet-icon">▫️</span>
+          <div>主辦機構保留篩選及決定物資用途之最終權利。</div>
+        </div>
       </div>
     </section>
+
+    <!-- ===== 底部 CTA：我有東西想拍賣 ===== -->
+    <div class="cta">
+      <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSeqsXDnJPjGlSQy4wQ7t4JdbDbQ2S7PjlxPxGSbMrJtRl0XhQ/viewform?usp=dialog" target="_blank" rel="noopener">
+        🎁 我有好物拍賣 · 為慈善出一分力 ➔
+      </a>
+      <div class="cta-hint">如有查詢，可致電 +852 2877 2311 與我們聯絡。</div>
+    </div>
 
     <!-- ===== 協辦單位 Logo ===== -->
     <section>
@@ -585,6 +747,12 @@
   <footer>
     <div class="wrap">Benchmark 123 尋吧！慈善市集 ReLove Bazaar</div>
   </footer>
+
+<!-- ===== 右下角長期懸浮按鈕 ===== -->
+<a class="floating-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeqsXDnJPjGlSQy4wQ7t4JdbDbQ2S7PjlxPxGSbMrJtRl0XhQ/viewform?usp=dialog" target="_blank" rel="noopener" aria-label="立即登記拍賣物資">
+  <span class="desktop-text">🎁 立即登記拍賣物資</span>
+  <span class="mobile-text">🎁 立即登記</span>
+</a>
 
 </body>
 </html>
